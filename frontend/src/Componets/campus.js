@@ -1,28 +1,14 @@
-import React, { useEffect, useState} from 'react'
-import axios from "axios"
-const Campus = "http://localhost:8000/campus/"
-
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function App() {
-  const [data, setData] = useState([])
 
-  const fecthData = () => {
-    axios(`${Campus}`)
-      .then((response) => {
-         setData(response);
-
-      })
-      .catch((error) => {});
-  };
-
-  useEffect(() => {
-    fecthData();
-  }, []);
-  console.log(data.data)
   return (
     <div>
-      
+      <Link to="/cce">CCE</Link>
+      <Link to="/cholula">Cholula</Link>
+      <Link to="/colmena">La Colmena</Link>
+      <Link to="/casa">CaSa</Link>
     </div>
-  )
+  );
 }

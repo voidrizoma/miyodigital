@@ -1,19 +1,17 @@
-import React, { useEffect, useState} from 'react'
-import axios from "axios"
-const Campus = "http://localhost:8000/cipher/"
-
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Title, ProjectContainer, Cipher } from "../../styles/styles"
+const Campus = "http://localhost:8000/cipher/";
 
 export default function App() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   const fecthData = () => {
     axios(`${Campus}`)
       .then((response) => {
-          let CCE = response.data.filter(datos => datos.campus === 2)
- 
-        setData(CCE);
+        let CCE = response.data.filter((datos) => datos.campus === 2);
 
+        setData(CCE);
       })
       .catch((error) => {});
   };
@@ -21,10 +19,16 @@ export default function App() {
   useEffect(() => {
     fecthData();
   }, []);
-  console.log(data)
+
   return (
-    <div>
-      
+    <div style={{backgroundColor:"#f7e8f7", padding:"5%"}}>
+      <Title>¿Qué ṕasaría si yo gobernara Internet?</Title>
+      {data.map((data, index) => (
+        <ProjectContainer>
+          <Cipher>{data.decode}</Cipher>
+          <Cipher>{data.encode}</Cipher>
+        </ProjectContainer>
+      ))}
     </div>
-  )
+  );
 }

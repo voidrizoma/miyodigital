@@ -1,8 +1,7 @@
 import React from "react";
+import Home from "../Componets/CaSa";
 
-import Home from "../Componets/campus";
-
-export default function home() {
+export default function CASA() {
   return (
     <div>
       <Home />
