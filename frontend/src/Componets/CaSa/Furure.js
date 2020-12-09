@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Letter } from "../../styles/styles"
+import { Letter, Title } from "../../styles/styles"
 const Campus = "http://localhost:8000/future/";
 
 export default function App() {
@@ -22,6 +22,7 @@ export default function App() {
 
   return (
     <div style={{backgroundColor:"#f7e8f7", padding:"5%"}}>
+      <Title>Carta de mi yo del pasado</Title>
       {data.map((data, index) => (
         <Letter>{data.letter}</Letter>
       ))}
